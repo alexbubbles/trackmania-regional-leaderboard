@@ -27,5 +27,5 @@ While official tools and Trackmania.io provide global and broad regional ranking
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/YOUR-USERNAME/trackmania-leaderboard-tracker.git](https://github.com/YOUR-USERNAME/trackmania-leaderboard-tracker.git)
+   git clone [https://github.com/YOUR-USERNAME/trackmania-regional-leaderboard.git](https://github.com/YOUR-USERNAME/trackmania-leaderboard-tracker.git)
    cd trackmania-leaderboard-tracker
