@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackmania Seasonal Leaderboard Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>TRACKMANIA SEASONAL LEADERBOARD TRACKER</h1>
+        
+        <div class="card">
+            <div class="form-group">
+                <label>Campaign:</label>
+                <select id="uid">
+                    <option value="c61c3b42-f1ef-43a9-be77-ff0d8a8220a9" selected>Summer 2026</option>
+                    <option value="2b5465cd-38a6-4103-b4c9-27f72adceba6">Spring 2026</option>
+                    <option value="0676571d-3907-4dcb-8068-df28684e6a03">Winter 2026</option>
+                    <option value="0676571d-3907-4dcb-8068-df28684e6a03">Fall 2025</option>
+                    <option value="0676571d-3907-4dcb-8068-df28684e6a03">Summer 2025</option>
+                    <option value="45f995b3-512e-4bf1-9f9d-74c77a0616d0">Spring 2025</option>
+                    <option value="d072cef8-07fa-4cd5-a108-2c7dcc2744fa">Winter 2025</option>
+                    <option value="28524e1c-351d-4b1c-b72e-5b1a6ee02cd1">Fall 2024</option>
+                    <option value="28524e1c-351d-4b1c-b72e-5b1a6ee02cd1">Summer 2024</option>
+                    <option value="28524e1c-351d-4b1c-b72e-5b1a6ee02cd1">Spring 2024</option>
+                    <option value="b44807b9-9284-4730-a184-281069f45b60">Winter 2024</option>
+                    <option value="0c61a2fe-f90b-4c9e-8eca-e1472968c5db">Fall 2023</option>
+                    <option value="0c61a2fe-f90b-4c9e-8eca-e1472968c5db">Summer 2023</option>
+                    <option value="9e14fc4f-e468-4a80-8f1f-e9e66f89b5f8">Spring 2023</option>
+                    <option value="ee54d6c5-954c-49b9-bd82-b51f8175b3f7">Winter 2023</option>
+                    <option value="ee54d6c5-954c-49b9-bd82-b51f8175b3f7">Fall 2022</option>
+                    <option value="ee54d6c5-954c-49b9-bd82-b51f8175b3f7">Summer 2022</option>
+                    <option value="fab938e9-05e3-4c09-856f-62f10579a243">Spring 2022</option>
+                    <option value="cd7facc2-3cee-45cf-b7c6-816da8e99db4">Winter 2022</option>
+                    <option value="45569279-a101-446d-b5d6-649471deadcf">Fall 2021</option>
+                    <option value="2e2bbf85-bf44-4376-8b97-874cd6cf8693">Summer 2021</option>
+                    <option value="3399c5d2-5baf-45c6-9977-1bd2da745c32">Spring 2021</option>
+                    <option value="3987d489-03ae-4645-9903-8f7679c3a418">Winter 2021</option>
+                    <option value="aeeac67d-1174-4e83-a57a-81411f4b195e">Fall 2020</option>
+                    <option value="3987d489-03ae-4645-9903-8f7679c3a418">Summer 2020</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Region:</label>
+                <input type="text" id="region" value="World" placeholder="Type here ex. World/Continent/Country/Region or Province">
+            </div>
+            
+            <div class="form-group">
+                <label>Top:</label>
+                <div class="input-with-hint">
+                    <input type="number" id="pages" value="1" max="100" class="small-input">
+                    <span class="hint-text">(x100) players - 1.5s/100players (max 10k players = 2.5min)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="startBtn">START SEARCH</button>
+            <div id="loader" class="loader" style="display: none;"></div>
+        </div>
+
+        <div id="statusMessage" class="status-box" style="display: none;"></div>
+
+        <div class="table-container" id="tableContainer" style="display: none;">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Rank</th>
+                        <th style="width: 50%;">Player</th>
+                        <th style="width: 20%;">Global Pos.</th>
+                        <th style="width: 20%; text-align: right;">Score</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+            
+            <div class="pagination" id="paginationControls">
+                <div class="page-nav">
+                    <button id="firstBtn" disabled>First</button>
+                    <button id="prevBtn" disabled>Previous</button>
+                </div>
+                
+                <div class="page-jump">
+                    Page <input type="number" id="pageInput" value="1" min="1" disabled> of <span id="totalPages">1</span>
+                </div>
+                
+                <div class="page-nav">
+                    <button id="nextBtn" disabled>Next</button>
+                    <button id="lastBtn" disabled>Last</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
